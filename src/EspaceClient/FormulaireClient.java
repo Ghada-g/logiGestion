@@ -33,11 +33,11 @@ public class FormulaireClient extends JFrame {
 	static Statement st=null;
 
 	private JPanel contentPane;
-	private JTextField Nom_A;
-	private JTextField Prenom_A;
-	private JTextField CIN_A;
-	private JPasswordField mdp_A;
-	private JTextField ddn_A;
+	private JTextField Nom_C;
+	private JTextField Prenom_C;
+	private JTextField CIN_C;
+	private JPasswordField mdp_C;
+	private JTextField ddn_C;
 
 	/**
 	 * Launch the application.
@@ -58,7 +58,7 @@ public class FormulaireClient extends JFrame {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		String url="jdbc:mysql://localhost:3306/gestionabsence";
+		String url="jdbc:mysql://localhost:3306/sys";
 		
 		String login="root";
 		String mdp="0000";
@@ -108,10 +108,10 @@ public class FormulaireClient extends JFrame {
 		lblNewLabel_1.setBounds(31, 63, 46, 14);
 		panel.add(lblNewLabel_1);
 		
-		Nom_A = new JTextField();
-		Nom_A.setBounds(119, 60, 145, 20);
-		panel.add(Nom_A);
-		Nom_A.setColumns(10);
+		Nom_C = new JTextField();
+		Nom_C.setBounds(119, 60, 145, 20);
+		panel.add(Nom_C);
+		Nom_C.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Pr\u00E9nom");
 		lblNewLabel.setBounds(31, 122, 46, 14);
@@ -121,61 +121,61 @@ public class FormulaireClient extends JFrame {
 		lblCin.setBounds(31, 173, 46, 14);
 		panel.add(lblCin);
 		
-		Prenom_A = new JTextField();
-		Prenom_A.setBounds(119, 119, 145, 20);
-		panel.add(Prenom_A);
-		Prenom_A.setColumns(10);
+		Prenom_C = new JTextField();
+		Prenom_C.setBounds(119, 119, 145, 20);
+		panel.add(Prenom_C);
+		Prenom_C.setColumns(10);
 		
-		CIN_A = new JTextField();
-		CIN_A.setBounds(119, 170, 145, 20);
-		panel.add(CIN_A);
-		CIN_A.setColumns(10);
+		CIN_C = new JTextField();
+		CIN_C.setBounds(119, 170, 145, 20);
+		panel.add(CIN_C);
+		CIN_C.setColumns(10);
 		
 		JLabel lblMotDePasse = new JLabel("Mot de passe");
 		lblMotDePasse.setBounds(12, 286, 98, 14);
 		panel.add(lblMotDePasse);
 		
-		mdp_A = new JPasswordField();
-		mdp_A.setBounds(119, 283, 145, 20);
-		panel.add(mdp_A);
+		mdp_C = new JPasswordField();
+		mdp_C.setBounds(119, 283, 145, 20);
+		panel.add(mdp_C);
 		
 		JButton btnNewButton = new JButton("valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String nom_a = Nom_A.getText().toString();
-				String prenom_a = Prenom_A.getText().toString();
-			    String cin_a = CIN_A.getText().toString();
+				String nom_c = Nom_C.getText().toString();
+				String prenom_c = Prenom_C.getText().toString();
+			    String cin_c = CIN_C.getText().toString();
 				
-				String date_naissance_a = ddn_A.getText().toString();
-				String password_a = mdp_A.getText().toString();
+				String date_naissance_c = ddn_C.getText().toString();
+				String password_c = mdp_C.getText().toString();
 				
-				String sql ="Insert into  agent_administratif (nom_Agent,prenom_Agent,cin_Agent,matricule_Agent,ddn_Agent,mdp_Agent) values (?,?,?,?,?,?)";
+				String sql ="Insert into  client (nom_Client,prenom_Client,cin_Client,ddn_Client,mdp_Client) values (?,?,?,?,?)";
 				try{
-					if (!Nom_A.equals("") && !Prenom_A.equals("") && !CIN_A.equals("")  && !ddn_A.equals("") && !mdp_A.equals("")){
+					if (!Nom_C.equals("") && !Prenom_C.equals("") && !CIN_C.equals("")  && !ddn_C.equals("") && !mdp_C.equals("")){
 				prepared = connection.prepareStatement(sql);
 				
-				prepared.setString(1, nom_a);
+				prepared.setString(1, nom_c);
 				
-				prepared.setString(2, prenom_a);
+				prepared.setString(2, prenom_c);
 				
-				prepared.setString(3, cin_a);
-				
-				
+				prepared.setString(3, cin_c);
 				
 				
-				prepared.setString(5, date_naissance_a);
 				
-				prepared.setString(6, password_a);
+				
+				prepared.setString(4, date_naissance_c);
+				
+				prepared.setString(5, password_c);
 				
 				prepared.execute();
 				
-				Nom_A.setText("");
-				Prenom_A.setText("");
-				CIN_A.setText("");
+				Nom_C.setText("");
+				Prenom_C.setText("");
+				CIN_C.setText("");
 				
-				ddn_A.setText("");
-				mdp_A.setText("");
+				ddn_C.setText("");
+				mdp_C.setText("");
 					
 					}
 					else{
@@ -233,10 +233,10 @@ public class FormulaireClient extends JFrame {
 		lblNewLabel_2.setBounds(308, 44, 238, 333);
 		panel.add(lblNewLabel_2);
 		
-		ddn_A = new JTextField();
-		ddn_A.setBounds(119, 229, 145, 20);
-		panel.add(ddn_A);
-		ddn_A.setColumns(10);
+		ddn_C = new JTextField();
+		ddn_C.setBounds(119, 229, 145, 20);
+		panel.add(ddn_C);
+		ddn_C.setColumns(10);
 	}
 
 }

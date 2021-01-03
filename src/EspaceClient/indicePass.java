@@ -66,7 +66,7 @@ public class indicePass extends JFrame {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		String url="jdbc:mysql://localhost:3306/gestionabsence";
+		String url="jdbc:mysql://localhost:3306/sys";
 	
 		String login="root";
 		String mdp="0000";
@@ -110,7 +110,7 @@ public class indicePass extends JFrame {
 				
 				//***********
 				String username=UserName.getText().toString();
-				String sql= "select mdp_Agent from agent_administratif where cin_Agent=?";
+				String sql= "select mdp_Client from client where cin_Client=?";
 				try {
 					prepared= connection.prepareStatement(sql);
 					
@@ -118,7 +118,7 @@ public class indicePass extends JFrame {
 					rs=prepared.executeQuery();
 					if (rs.next()){
 					
-					String pass =rs.getString("mdp_Agent");
+					String pass =rs.getString("mdp_Client");
 					String pass1 =pass.substring(0, 3);
 					indicationField.setText("les 3 premiers lettres sont  " +pass1);}
 					

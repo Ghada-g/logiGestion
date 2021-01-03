@@ -76,7 +76,7 @@ import javax.swing.border.EmptyBorder;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			}
-			String url="jdbc:mysql://localhost:3306/gestionabsence";
+			String url="jdbc:mysql://localhost:3306/sys";
 			
 			String login="root";
 			String mdp="0000";
@@ -156,7 +156,7 @@ import javax.swing.border.EmptyBorder;
 
 			
 			    
-			    String sql="Select cin_Agent,mdp_Agent from agent_administratif";
+			    String sql="Select cin_Client,mdp_Client from client";
 			    try{
 			
 
@@ -171,13 +171,12 @@ import javax.swing.border.EmptyBorder;
 			 }else {
 			    while(rs.next()) {
 			
-			        String cin=rs.getString("cin_Agent");
-			        String mdp=rs.getString("mdp_Agent");
+			        String cin=rs.getString("cin_Client");
+			        String mdp=rs.getString("mdp_Client");
 			       if(cin.equals(cin1) && mdp.equals(mdp1))
 			       {   i=1;
 			        	JOptionPane.showMessageDialog(null, "connetion reussite");
-			        	//menuAgent f = new menuAgent();
-						//f.setVisible(true);	
+			        		
 						}
 	                            
 			        

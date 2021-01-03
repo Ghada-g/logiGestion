@@ -11,7 +11,7 @@ private Statement st;
 private ResultSet rs;
 private String sql;
 public boolean seConnecter(){
-String url="jdbc:mysql://localhost/gestionabsence";
+String url="jdbc:mysql://localhost/sys";
 
 String login="root";
 String mdp="0000";
