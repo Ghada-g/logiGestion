@@ -95,7 +95,7 @@ public class Facture {
 		frame.getContentPane().add(btnImprimer);
 		
 		table = new JTable();
-		table.setBounds(24, 93, 355, 100);
+		table.setBounds(34, 93, 359, 98);
 		frame.getContentPane().add(table);
 	}
 }
