@@ -11,21 +11,21 @@ public class ArticleLot53 extends ArticleAbstrait53{
 	private int qtiteLot; 
 	private float reduction;
 	private int periode = 7;
-	private DateUser dateDep;
-	private 	DateUser dateFin;
+	private DateUser dateDebut;
+	private DateUser dateFin;
 	
 	
 	public ArticleLot53(int code, String designation, float pu, int qtiteLot, float reduction) {
 		super(code, designation, pu);
 		this.qtiteLot = qtiteLot;
 		this.reduction = reduction / 100;
-		this.dateDep = new DateUser();
+		this.dateDebut = new DateUser();
 		setPeriode(periode);		
 	}
 
 	@Override
 	public String toString() {
-		return "Code: " + getCode() + "\t\tDésignation: " + getDesignation() + "\t\tP.U.: " + getPu() + "\t* PROMO LOT * Reduction: " + reduction + " * Lot de:" + qtiteLot + "\n\t\t\t\t\t\t Du " + dateDep + " au " + dateFin;
+		return "Code: " + getCode() + "\t\tDésignation: " + getDesignation() + "\t\tP.U.: " + getPu() + "\t* PROMO LOT * Reduction: " + reduction + " * Lot de:" + qtiteLot + "\n\t\t\t\t\t\t Du " + dateDebut + " au " + dateFin;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class ArticleLot53 extends ArticleAbstrait53{
 	public float prixFacture(int quantite) {
 		DateUser today = new DateUser();
 		float prix;
-		if ((dateDep.compareTo(today) <= 0) && (today.compareTo(dateFin) <= 0)){
+		if ((dateDebut.compareTo(today) <= 0) && (today.compareTo(dateFin) <= 0)){
 			int nbLot = quantite / qtiteLot;
 			int reste = quantite % qtiteLot;
 			prix = (nbLot * qtiteLot) * getPu() * (1 - reduction) + reste * getPu();
@@ -55,7 +55,7 @@ public class ArticleLot53 extends ArticleAbstrait53{
 		+"\t" + (int) (getPu() * quantite) 
 		+"\t" + (int)(prixFacture(quantite) * 100) / 100f 
 		+ "\n\t\t\t\t\t\tArticle vendu par lot (remise de : " + (reduction *100) + "% pour un lot de " + qtiteLot +")"
-		+ "\n\t\t\t\t\t\tSur la période du " + dateDep + " au " + dateFin;
+		+ "\n\t\t\t\t\t\tSur la période du " + dateDebut + " au " + dateFin;
 	}
 
 	public int getQtiteLot() {
@@ -70,8 +70,8 @@ public class ArticleLot53 extends ArticleAbstrait53{
 		return periode;
 	}
 
-	public DateUser getDateDep() {
-		return dateDep;
+	public DateUser getDateDebut() {
+		return dateDebut;
 	}
 
 	public void setQtiteLot(int qtiteLot) {
@@ -88,7 +88,7 @@ public class ArticleLot53 extends ArticleAbstrait53{
 	}
 
 	public void setDateDep(DateUser dateDep) {
-		this.dateDep = dateDep;
+		this.dateDebut = dateDep;
 	}
 
 	public DateUser getDateFin() {

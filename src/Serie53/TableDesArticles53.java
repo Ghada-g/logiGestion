@@ -13,27 +13,27 @@ public class TableDesArticles53 implements InterfaceStructure <ArticleAbstrait53
 	private TreeMap<Integer, ArticleAbstrait53> tabArt = new TreeMap<Integer, ArticleAbstrait53>();
 	
 	public TableDesArticles53() {
-		ArticleAbstrait53 art1 = new Article53(1, "disque dur", 50.5f);
-		ArticleAbstrait53 art2 = new Article53(4, "carte mère", 1000f);
-		ArticleAbstrait53 art3 = new Article53(5, "carte réseau", 24.7f);
-		ArticleAbstrait53 art4 = new Article53(12, "boite 100 cd", 75.5f);
-		ArticleAbstrait53 art5 = new Article53(18, "mémoire flash", 17f);
+		ArticleAbstrait53 article1 = new Article53(1, "disque dur", 50.5f);
+		ArticleAbstrait53 article2 = new Article53(4, "carte mère", 1000f);
+		ArticleAbstrait53 article3 = new Article53(5, "carte réseau", 24.7f);
+		ArticleAbstrait53 article4 = new Article53(12, "boite 100 cd", 75.5f);
+		ArticleAbstrait53 article5 = new Article53(18, "mémoire flash", 17f);
 		
-		ArticleAbstrait53 artp = new ArticlePromo53(2, "Clé usb", 4f, 2, 50f) ;
+		ArticleAbstrait53 artpro = new ArticlePromo53(2, "Clé usb", 4f, 2, 50f) ;
 		ArticleAbstrait53 artLot = new ArticleLot53(6, "raspberry", 30, 2, 50);
 		
-		tabArt.put(art1.getCode(), art1);
-		tabArt.put(art2.getCode(), art2);
-		tabArt.put(art3.getCode(), art3);
-		tabArt.put(art4.getCode(), art4);
-		tabArt.put(art5.getCode(), art5);
-		tabArt.put(artp.getCode(), artp);
+		tabArt.put(article1.getCode(), article1);
+		tabArt.put(article2.getCode(), article2);
+		tabArt.put(article3.getCode(), article3);
+		tabArt.put(article4.getCode(), article4);
+		tabArt.put(article5.getCode(), article5);
+		tabArt.put(artpro.getCode(), artpro);
 		tabArt.put(artLot.getCode(), artLot);
 	}
 	
 	public String toString() {
 		String st = "";
-		if (taille() == 0) st = "\n*** STOCK VIDE ****\n";
+		if (taille() == 0) st = "\n*** STOCK VIDE ***\n";
 		else {
 			st = "\n*** LISTE DES ARTICLES EN STOCK \n";
 			for(ArticleAbstrait53 art : tabArt.values()) {
@@ -45,7 +45,7 @@ public class TableDesArticles53 implements InterfaceStructure <ArticleAbstrait53
 	
 	public String toStringPromo() {
 		String st = "";
-		if (taille() == 0) st = "\n*** STOCK VIDE ****\n";
+		if (taille() == 0) st = "\n*** STOCK VIDE ***\n";
 		else {
 			st = "\n*** LISTE DES ARTICLES EN PROMO EN STOCK \n";
 			for(ArticleAbstrait53 art : tabArt.values()) {
@@ -60,7 +60,7 @@ public class TableDesArticles53 implements InterfaceStructure <ArticleAbstrait53
 		String st = "";
 		if (taille() == 0) st = "\n*** STOCK VIDE ****\n";
 		else {
-			st = "\n*** LISTE DES ARTICLES VENDU EN LOT EN STOCK \n";
+			st = "\n*** LISTE DES ARTICLES VENDU EN LOT EN STOCK *** \n";
 			for(ArticleAbstrait53 art : tabArt.values()) {
 				if (art instanceof ArticleLot53)
 					st += art.toString() + "\n"; 

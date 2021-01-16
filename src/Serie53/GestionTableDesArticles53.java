@@ -63,13 +63,13 @@ public class GestionTableDesArticles53 implements InterfaceGestion <TableDesArti
 	public int menuChoix(Object ...objects) throws AbandonException {
 		String menu = "\n ***   GESTION des ARTICLES   ***\n\n" 
 						+ " CRÉER un article ................................ 1 \n"
-						+ " MODIFIER un article ........................... 2 \n"
-						+ " SUPPRIMER un article ......................... 3 \n"
-						+ " AFFICHER le stock ............................. 4 \n"
-						+ " AFFICHER les articles en Promotion ... 5 \n"
-						+ " AFFICHER les articles bradés par lot ... 6 \n"
-						+ " SAUVEGARDER les articles ................. 7 \n"
-						+ " FIN ..................................................... 0 \n"
+						+ " MODIFIER un article ............................. 2 \n"
+						+ " SUPPRIMER un article ............................ 3 \n"
+						+ " AFFICHER le stock ............................... 4 \n"
+						+ " AFFICHER les articles en Promotion .............. 5 \n"
+						+ " AFFICHER les articles bradés par lot ............ 6 \n"
+						+ " SAUVEGARDER les articles ........................ 7 \n"
+						+ " FIN ............................................. 0 \n"
 						+ " VOTRE CHOIX : \n";
 		return ES.saisie(menu, 0, 7);
 	}
@@ -250,7 +250,7 @@ public class GestionTableDesArticles53 implements InterfaceGestion <TableDesArti
 			tabArt.supprimer(code);
 			tabCde.purge(code);
 		} else
-			ES.affiche("\nCet article n'existe pas\n");
+			ES.affiche("\nCet article n'existe pas!\n");
 	
 	}
 	
@@ -269,7 +269,7 @@ public class GestionTableDesArticles53 implements InterfaceGestion <TableDesArti
 		if (a1 != null)
 			tabArt.modifier(a1);
 		else
-			ES.affiche("\nCet article n'existe pas\n");
+			ES.affiche("\nCet article n'existe pas!\n");
 		}catch (AbandonException e) {
 			menuGeneral(tabArt, tabCde);
 		}

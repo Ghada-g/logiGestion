@@ -14,9 +14,9 @@ import javax.swing.JButton;
 public class Commande{
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField code_article;
+	private JTextField num_client;
+	private JTextField quantité;
 
 	/**
 	 * Launch the application.
@@ -72,20 +72,20 @@ public class Commande{
 		lblQunatit.setBounds(64, 181, 59, 14);
 		frame.getContentPane().add(lblQunatit);
 		
-		textField = new JTextField();
-		textField.setBounds(177, 87, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		code_article = new JTextField();
+		code_article.setBounds(177, 87, 86, 20);
+		frame.getContentPane().add(code_article);
+		code_article.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(178, 129, 86, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		num_client = new JTextField();
+		num_client.setBounds(178, 129, 86, 20);
+		frame.getContentPane().add(num_client);
+		num_client.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(177, 179, 86, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		quantité = new JTextField();
+		quantité.setBounds(177, 179, 86, 20);
+		frame.getContentPane().add(quantité);
+		quantité.setColumns(10);
 		
 		JButton btnZjouter = new JButton("Ajouter");
 		btnZjouter.setFont(new Font("Tahoma", Font.BOLD, 13));
