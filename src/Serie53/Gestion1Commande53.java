@@ -54,11 +54,11 @@ public class Gestion1Commande53 implements InterfaceGestion <Commande53<String>,
 	public  int menuChoix(Object ...objects) throws AbandonException {
 		String numCde = (String) objects[0];
 		String menu = "\n\n ***   GESTION DE LA COMMANDE N° " + numCde + "    ***\n\n"
-						+ " SAISIR une ligne de commande ........................... 1 \n"
-						+ " MODIFIER une ligne de commande ...................... 2 \n" 
+						+ " SAISIR une ligne de commande ........................1 \n"
+						+ " MODIFIER une ligne de commande ......................2 \n" 
 						+ " SUPPRIMER une ligne de commande .................... 3 \n" 
-						+ " AFFICHER la commande ...................................... 4 \n"
-						+ " FIN ...................................................................... 0 \n"
+						+ " AFFICHER la commande ............................... 4 \n"
+						+ " FIN .................................................0 \n"
 						+ " VOTRE CHOIX :\n";
 		return ES.saisie(menu, 0, 4);
 	}

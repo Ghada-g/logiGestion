@@ -65,14 +65,14 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 	@Override
 	public int menuChoix(Object... objects) throws AbandonException {
 		String menu = "\n ***   GESTION des FACTURES   ***\n\n" 
-				+ " CREATION d'une facture ............................ 1 \n"
+				+ " CREATION d'une facture .........................1 \n"
 				+ " CREATION de toutes les factures ............... 2 \n"
-				+ " SUPPRIMER une facture .............................. 3 \n"
-				+ " AFFICHER une facture ................................ 4 \n"
-				+ " AFFICHER toutes les factures ..................... 5 \n"
-				+ " AFFICHER les commandes à facturer .......... 6 \n"
-				+ " SAUVEGARDER les factures ........................ 7 \n"
-				+ " FIN ............................................................. 0 \n"
+				+ " SUPPRIMER une facture ..........................3 \n"
+				+ " AFFICHER une facture ...........................4 \n"
+				+ " AFFICHER toutes les factures ...................5 \n"
+				+ " AFFICHER les commandes Ã  facturer ............ 6 \n"
+				+ " SAUVEGARDER les factures .......................7 \n"
+				+ " FIN ............................................0 \n"
 				+ " VOTRE CHOIX : \n";
 		return ES.saisie(menu, 0, 7);
 	}
@@ -84,12 +84,12 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 		if (tabCde.cle().isEmpty())
 			ES.affiche("*** AUCUNE COMMANDE ACTUELLEMENT ***");
 		else {
-			String numCde = ES.saisie("Quelle commande voulez vous facturer ? \nNuméro de Commande : " + tabCde.clesNonFacture().toString());
+			String numCde = ES.saisie("Quelle commande voulez vous facturer ? \nNumÃ©ro de Commande : " + tabCde.clesNonFacture().toString());
 			Commande53<String> cde = tabCde.retourner(numCde); 
 			if(cde == null) 
 				ES.affiche("\n La commande n'existe pas ! ");
 			else if (tabFact.retourner(numCde) != null)
-				ES.affiche("Cette commande a déjà été facturé");
+				ES.affiche("Cette commande a dÃ©jÃ  Ã©tÃ© facturÃ©");
 			else {
 				DateUser datJour = new DateUser();
 				Facture53<String> fact = new Facture53<String>(cde.getNumCde(), datJour, cde.getNumClient(),
@@ -97,7 +97,7 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 				tabFact.ajouter(fact);
 				cde.setDateFacture(datJour);
 				cde.setEtatFacture(true);
-				ES.affiche("LA FACTURE N° " + fact.getNumFacture() + " DE LA COMMANDE N° " + cde.getNumCde() + " A ÉTÉ CRÉÉ ");
+				ES.affiche("LA FACTURE NÂ° " + fact.getNumFacture() + " DE LA COMMANDE NÂ° " + cde.getNumCde() + " A Ã‰TÃ‰ CRÃ‰Ã‰ ");
 			}
 		}
 	}
@@ -121,7 +121,7 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 					cde.setEtatFacture(true);
 				}
 			}
-			ES.affiche("***   TOUTES LES FACTURES ONT ÉTÉ CRÉÉES    ***");
+			ES.affiche("***   TOUTES LES FACTURES ONT Ã‰TÃ‰ CRÃ‰Ã‰ES    ***");
 		}
 		
 	}
@@ -132,21 +132,21 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 		if (tabFact.taille() == 0)
 			ES.affiche("*** AUCUNE FACTURE ACTUELLEMENT ***");
 		else {
-			String num = ES.saisie("Quelle Facture voulez-vous supprimer ? \nNuméro de Facture :" + tabFact.cle().toString());
+			String num = ES.saisie("Quelle Facture voulez-vous supprimer ? \nNumÃ©ro de Facture :" + tabFact.cle().toString());
 			Facture53<String> fact = tabFact.retourner(num);
 			if (fact != null) {
-				Boolean sur = ES.saisieOuiNon("Êtes-vous certain de vouloir supprimer? \nCette action est irréversible (O/N): ");
+				Boolean sur = ES.saisieOuiNon("ÃŠtes-vous certain de vouloir supprimer? \nCette action est irreÌ�versible (O/N): ");
 				if (!sur) throw new AbandonException();
 				DateUser dateSys = new DateUser();
 				DateUser datLimite = new DateUser(fact.getDateFacture());
 				datLimite.ajouter(7);
 				if (dateSys.compareTo(datLimite) < 0) {
 					ES.affiche(
-							"Vous ne pouvez pas supprimer une facture avant les 7 jours qui ont suivis sa création\n Attendez jusqu'au "
+							"Vous ne pouvez pas supprimer une facture avant les 7 jours qui ont suivis sa crÃ©ation\n Attendez jusqu'au "
 									+ datLimite);
 				} else {
 					tabFact.supprimer(num);
-					ES.affiche("La facture N° " + num + " a été supprimée");
+					ES.affiche("La facture NÂ° " + num + " a Ã©tÃ© supprimÃ©e");
 				}
 			} else {
 				ES.affiche(" La facture n'existe pas ! ");
@@ -159,7 +159,7 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 		if (tabFact.taille() == 0)
 			ES.affiche("*** AUCUNE FACTURE ACTUELLEMENT ***");
 		else {
-			String num = ES.saisie("Quelle Facture voulez-vous afficher ? \nNuméro de Facture :" + tabFact.cle().toString());
+			String num = ES.saisie("Quelle Facture voulez-vous afficher ? \nNumÃ©ro de Facture :" + tabFact.cle().toString());
 			Facture53<String> fact = tabFact.retourner(num);
 			if (fact != null) 
 				ES.affiche(fact.toString());
@@ -180,7 +180,7 @@ public class GestionTableDesFactures53 implements InterfaceGestion<TableDesFactu
 		if (tabCde.clesNonFacture().isEmpty())
 			ES.affiche("*** AUCUNE COMMANDE A FACTURER ACTUELLEMENT ***");
 		else 
-			ES.affiche("Les numéros de commandes à facturer sont :\n" + tabCde.clesNonFacture().toString());
+			ES.affiche("Les numÃ©ros de commandes Ã  facturer sont :\n" + tabCde.clesNonFacture().toString());
 		
 	}
 	@Override

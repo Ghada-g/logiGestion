@@ -9,7 +9,7 @@ public class Commande53<TypeDeNumero> implements InterfaceStructure<LigneDeComma
 	private static final long serialVersionUID = 1L;
 	private Vector<LigneDeCommande53> cde = new Vector<LigneDeCommande53>();
 	private TypeDeNumero numCde;
-	private DateUser datCde = new DateUser();
+	private DateUser dat_Commande = new DateUser();
 	private String numClient; 
 	private float valeurTotal = 0f; 
 	private DateUser dateFacture; 
@@ -17,7 +17,7 @@ public class Commande53<TypeDeNumero> implements InterfaceStructure<LigneDeComma
 	
 	/**
 	 * @param cde
-	 * @param numCde formaté selon : 201709121 pour la commande 1 passée le 12 Septembre 2017
+	 * @param numCde formatÃ© selon : 201709121 pour la commande 1 passeÌ�e le 12 Septembre 2017
 	 */
 	public Commande53(Vector<LigneDeCommande53> cde, TypeDeNumero numCde) {
 		this.cde = cde;
@@ -103,7 +103,7 @@ public class Commande53<TypeDeNumero> implements InterfaceStructure<LigneDeComma
 	}
 
 	public DateUser getDatCde() {
-		return datCde;
+		return dat_Commande;
 	}
 
 	public void setCde(Vector<LigneDeCommande53> cde) {
@@ -115,7 +115,7 @@ public class Commande53<TypeDeNumero> implements InterfaceStructure<LigneDeComma
 	}
 
 	public void setDatCde(DateUser datCde) {
-		this.datCde = datCde;
+		this.dat_Commande = datCde;
 	}
 	
 	public TypeDeNumero getNumCde() {
@@ -160,15 +160,15 @@ public class Commande53<TypeDeNumero> implements InterfaceStructure<LigneDeComma
 
 	@Override
 	public String toString() {
-		String st = "\n\t Numero du Client : " + numClient + "\tCommande N°: " + numCde + "\t\tDate Cde: " + datCde + "\n";
+		String st = "\n\t Numero du Client : " + numClient + "\tCommande NÂ°: " + numCde + "\t\tDate Cde: " + dat_Commande + "\n";
 			  st += "_______________________________________________________________________________________\n";
 		if (etatFacture) {
-			st += "  FACTURÉ LE " + dateFacture + " pour une valeur totale H.T. de " + valeurTotal + "€\n";
+			st += "  FACTURÃ‰ LE " + dateFacture + " pour une valeur totale H.T. de " + valeurTotal + "â‚¬\n";
 		}else {
 			st += "  EN ATTENTE DE FACTURATION  pour une valeur totale H.T. de " + valeurTotal +"\n";
 		}
 		st += "_______________________________________________________________________________________\n";
-		st += "Code\tQuantité\n";
+		st += "Code\tQuantitÃ©\n";
 		st += "_______________________________________________________________________________________\n";
 		for (LigneDeCommande53 ldc : cde) {
 			st += ldc.toString() + "\n";
