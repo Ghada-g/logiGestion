@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 import Serie53.*;
 import iPane.ES;
-
+//code interface menu//
 public class Client61 extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -18,10 +18,10 @@ public class Client61 extends JFrame implements ActionListener{
 	TableDesClientsS tabCli = new TableDesClientsS();
 	TableDesCommandes53 tabCde = new TableDesCommandes53();
 	TableDesFactures53 tabFact = new TableDesFactures53();
-	JButton gestArt = new JButton("GESTION DES ARTICLES");
-	JButton gestCde = new JButton("GESTION DES COMMANDES");
-	JButton gestCli = new JButton("GESTION DES CLIENTS");
-	JButton gestFact = new JButton("GESTION DES FACTURES");
+	JButton gestArt = new JButton("Gestion des artivles");
+	JButton gestCde = new JButton("Gestion des commandes");
+	JButton gestCli = new JButton("Gestion des clients");
+	JButton gestFact = new JButton("Gestion des factures");
 	JButton fin = new JButton("FIN");
 	
 	public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class Client61 extends JFrame implements ActionListener{
 	public Client61() {
 		this.setLayout(new GridLayout(5,1,0,0));
 		this.setSize(300,200);
-		this.setTitle("MENU DE LA SUPERETTE");
+		this.setTitle("MENU ");
 		
 		this.add(gestArt);
 		gestArt.addActionListener(this);
@@ -47,7 +47,7 @@ public class Client61 extends JFrame implements ActionListener{
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
-
+//code Button//
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getSource() == gestArt) {
@@ -58,6 +58,7 @@ public class Client61 extends JFrame implements ActionListener{
 			ES.affiche("Vous êtes dans le menu Client");
 		} else if (evt.getSource() == gestFact){
 			ES.affiche("Vous êtes dans le menu Facture");
+			new Facture();
 		}else if(evt.getSource() == fin) {
 			setVisible(false);
 		}
